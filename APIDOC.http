@@ -1,0 +1,64 @@
+#api call for register users
+###
+POST http://127.0.0.1:8000/feedbackapp/users/
+Content-Type: application/json
+
+{
+  "username":"ram_kumar",
+  "first_name":"ram",
+  "last_name":"kumar",
+  "email":"ramkumar@gmail.com",
+  "password":"Password@123"
+}
+
+#api call for list all feedbacks of a student
+###
+GET http://127.0.0.1:8000/feedbackapp/feedbacks/
+Accept: application/json
+Authorization: Basic muhas_na:Password@123
+
+#api call for create a feedback
+###
+POST http://127.0.0.1:8000/feedbackapp/feedbacks/
+Content-Type: application/json
+Authorization: Basic muhas_na:Password@123
+
+{
+  "department": "ai_ds",
+  "feedback_text": "The practical sessions on Python and machine learning are very helpful.",
+  "sentiment": "positive",
+  "category": "academics"
+}
+#api call for retrieve a specific feedback
+###
+GET http://127.0.0.1:8000/feedbackapp/feedbacks/1/
+Accept: application/json
+Authorization: Basic muhas_na:Password@123
+
+#api call for update a feedback
+###
+PUT http://127.0.0.1:8000/feedbackapp/feedbacks/1/
+Content-Type: application/json
+Authorization: Basic muhas_na:Password@123
+
+{
+  "id": 1,
+  "department": "ece",
+  "feedback_text": "The lab equipment is outdated and some devices are not working properly.",
+  "sentiment": "negative",
+  "category": "infrastructure",
+  "created_at": "2026-10-22T06:04:50.255447Z",
+  "student": 1
+}
+
+#api call for delete a feedback
+###
+DELETE http://127.0.0.1:8000/feedbackapp/feedbacks/1/
+Accept: application/json
+Authorization: Basic muhas_na:Password@123
+
+#api call for feedback analytics
+###
+GET http://127.0.0.1:8000/feedbackapp/feedbacks/summary/
+Accept: application/json
+Authorization: Basic muhas_na:Password@123
